@@ -10,7 +10,13 @@ import UIKit
 
 class PeopleViewController: UITableViewController {
 
-    var people: [String] = []
+    var people: [NSDictionary] = []
+    var names: [String] = []
+    
+    var name: String = ""
+    var gender: String = ""
+    var birthyear: String = ""
+    var mass: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,8 @@ class PeopleViewController: UITableViewController {
                     if let results = jsonResult["results"] as? NSArray {
                         for person in results {
                             let personDict = person as! NSDictionary
-                            self.people.append(personDict["name"]! as! String)
+                            self.people.append(personDict)
+                            self.names.append(personDict["name"]! as! String)
                         }
                     }
                 }
@@ -44,15 +51,31 @@ class PeopleViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return the count of people in our data array
-        return people.count
+        return names.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
         let cell = UITableViewCell()
         // set the default cell label to the corresponding element in the people array
-        cell.textLabel?.text = people[indexPath.row]
+        cell.textLabel?.text = names[indexPath.row]
         // return the cell so that it can be rendered
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        name = people[indexPath.row]["name"]! as! String
+        gender = people[indexPath.row]["gender"]! as! String
+        birthyear = people[indexPath.row]["birth_year"]! as! String
+        mass = people[indexPath.row]["mass"]! as! String
+        performSegue(withIdentifier: "PersonDetail", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! PersonDetailViewController
+        destination.name = name
+        destination.gender = gender
+        destination.birthyear = birthyear
+        destination.mass = mass
     }
     
 }

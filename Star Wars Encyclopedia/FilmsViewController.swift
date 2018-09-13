@@ -10,7 +10,13 @@ import UIKit
 
 class FilmsViewController: UITableViewController {
 
-    var films: [String] = []
+    var films: [[String: Any]] = []
+    var titles: [String] = []
+    
+    var titlel: String = ""
+    var releasedate: String = ""
+    var director: String = ""
+    var openingcrawl: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +35,9 @@ class FilmsViewController: UITableViewController {
                         // now we can run NSArray methods like count and firstObject
                         for film in resultsArray {
                             let temp = film as! [String: Any]
+                            self.films.append(temp)
                             let temp2 = temp["title"]! as! String
-                            self.films.append(temp2)
+                            self.titles.append(temp2)
                         }
                         DispatchQueue.main.async { [unowned self] in
                             self.tableView.reloadData()
@@ -54,15 +61,29 @@ class FilmsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return the count of people in our data array
-        return films.count
+        return titles.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
         let cell = UITableViewCell()
         // set the default cell label to the corresponding element in the people array
-        cell.textLabel?.text = films[indexPath.row]
+        cell.textLabel?.text = titles[indexPath.row]
         // return the cell so that it can be rendered
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        titlel = films[indexPath.row]["title"]! as! String
+        releasedate = films[indexPath.row]["release_date"]! as! String
+        director = films[indexPath.row]["director"]! as! String
+        openingcrawl = films[indexPath.row]["opening_crawl"]! as! String
+        performSegue(withIdentifier: "FilmDetail", sender: indexPath)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! FilmDetailViewController
+        destination.titlel = titlel
+        destination.releasedate = releasedate
+        destination.director = director
+        destination.openingcrawl = openingcrawl
     }
 
 }

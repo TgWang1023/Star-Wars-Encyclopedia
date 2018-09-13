@@ -14,6 +14,8 @@
 		B45B3A9C2149B8D60008FA01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B45B3A9A2149B8D60008FA01 /* LaunchScreen.storyboard */; };
 		B45B3AA42149D4E00008FA01 /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B3AA32149D4E00008FA01 /* FilmsViewController.swift */; };
 		B45B3AA62149E2CD0008FA01 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B3AA52149E2CD0008FA01 /* StarWarsModel.swift */; };
+		B45B3AA8214AE2E50008FA01 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B3AA7214AE2E50008FA01 /* PersonDetailViewController.swift */; };
+		B45B3AAA214AE3000008FA01 /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B3AA9214AE3000008FA01 /* FilmDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		B45B3A9D2149B8D60008FA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45B3AA32149D4E00008FA01 /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 		B45B3AA52149E2CD0008FA01 /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
+		B45B3AA7214AE2E50008FA01 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		B45B3AA9214AE3000008FA01 /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,11 @@
 			children = (
 				B45B3A912149B8D40008FA01 /* AppDelegate.swift */,
 				B45B3A932149B8D40008FA01 /* PeopleViewController.swift */,
-				B45B3A952149B8D40008FA01 /* Main.storyboard */,
+				B45B3AA7214AE2E50008FA01 /* PersonDetailViewController.swift */,
 				B45B3AA32149D4E00008FA01 /* FilmsViewController.swift */,
+				B45B3AA9214AE3000008FA01 /* FilmDetailViewController.swift */,
 				B45B3AA52149E2CD0008FA01 /* StarWarsModel.swift */,
+				B45B3A952149B8D40008FA01 /* Main.storyboard */,
 				B45B3A982149B8D60008FA01 /* Assets.xcassets */,
 				B45B3A9A2149B8D60008FA01 /* LaunchScreen.storyboard */,
 				B45B3A9D2149B8D60008FA01 /* Info.plist */,
@@ -144,6 +150,8 @@
 				B45B3AA42149D4E00008FA01 /* FilmsViewController.swift in Sources */,
 				B45B3A942149B8D40008FA01 /* PeopleViewController.swift in Sources */,
 				B45B3AA62149E2CD0008FA01 /* StarWarsModel.swift in Sources */,
+				B45B3AAA214AE3000008FA01 /* FilmDetailViewController.swift in Sources */,
+				B45B3AA8214AE2E50008FA01 /* PersonDetailViewController.swift in Sources */,
 				B45B3A922149B8D40008FA01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
